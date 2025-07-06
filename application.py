@@ -1,13 +1,22 @@
-# main.py
+# application.py
 
 from fastapi import FastAPI, WebSocket
 import uvicorn
 import random
 from datetime import datetime, timedelta
-
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://ws.hanner616.website"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 
